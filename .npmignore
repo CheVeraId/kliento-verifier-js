@@ -1,0 +1,9 @@
+*
+
+!build/lib/**
+build/lib/**/*.spec.js*
+build/lib/lib/testUtils/**
+
+!LICENSE
+!README.md
+!package.json
