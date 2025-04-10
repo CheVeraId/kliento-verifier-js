@@ -23,23 +23,23 @@ serve({ fetch: klientoVerifier.fetch, port: 3000 });
 
 Simply make a `POST /` request to the server with the token bundle in the body and the expected audience in the query string.
 
-For example, to verify a token bundle in the file `token-bundle-file` with the audience `https://api.example.com`, you could use `curl` as follows:
+For example, to verify a token bundle in the file `token.bundle` with the audience `https://api.example.com`, you could use `curl` as follows:
 
 ```bash
 curl \
-  -X POST \
-  -d @token-bundle-file \
-  "http://localhost:3000/?audience=https%3A%2F%2Fapi.example.com"
+  --request POST \
+  --data @token.bundle \
+  'http://localhost:3000/?audience=https%3A%2F%2Fapi.example.com'
 ```
 
 Alternatively, to verify a token bundle in an `Authorization` request header, you should set the request `Content-Type` to `application/vnd.kliento.auth-header`. For example:
 
 ```bash
 curl \
-  -X POST \
-  -H "Content-Type: application/vnd.kliento.auth-header" \
-  -d @token-bundle-file \
-  "http://localhost:3000/?audience=https%3A%2F%2Fapi.example.com"
+  --request POST \
+  --header 'Content-Type: application/vnd.kliento.auth-header' \
+  --data 'Kliento <TOKEN-BUNDLE-BASE64>' \
+  'http://localhost:3000/?audience=https%3A%2F%2Fapi.example.com'
 ```
 
 ## HTTP responses
