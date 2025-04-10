@@ -10,7 +10,7 @@ jobs:
   release-npm:
     needs: ci
     permissions:
-      contents: write*  # To create a Git tag
+      contents: write  # To create a Git tag
 
       # Permissions needed to publish to Pages, although we don't actually use Pages
       pages: write
