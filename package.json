@@ -8,8 +8,8 @@
   },
   "description": "Self-contained client authentication tokens",
   "type": "module",
-  "typings": "build/lib/index.d.ts",
-  "main": "build/lib/index.js",
+  "typings": "build/index.d.ts",
+  "main": "build/index.js",
   "repository": "https://github.com/CheVeraId/kliento-verifier",
   "license": "MIT",
   "keywords": [
@@ -27,10 +27,18 @@
     "test": "vitest run",
     "test:integration": "exit 0",
     "tsc": "tsc",
-    "clean": "del-cli build test"
+    "clean": "del-cli build test",
+    "start": "tsx watch src/nodejs.ts"
   },
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "@veraid/kliento": "^1.1.0",
+    "hono": "^4.7.6"
+  },
+  "optionalDependencies": {
+    "@hono/node-server": "^1.14.0"
   },
   "devDependencies": {
     "@relaycorp/eslint-config": "^2.0.86",
@@ -40,7 +48,7 @@
     "eslint": "^9.24.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.3.3",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
     "typedoc": "^0.28.2",
     "typescript": "^5.8.3",
     "vitest": "^3.1.1"
