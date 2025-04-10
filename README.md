@@ -6,13 +6,16 @@ This is a trivial HTTP server that verifies [Kliento](https://veraid.net/kliento
 
 ### NPM package
 
-The app is available as a Hono server in the [NPM package `@veraid/kliento-verifier`](https://www.npmjs.com/package/@veraid/kliento-verifier). The app is the default export of the package and can be imported as follows:
+The app is available as a Hono server in the [NPM package `@veraid/kliento-verifier`](https://www.npmjs.com/package/@veraid/kliento-verifier). The app is the default export of the package.
+
+Refer to the [Hono documentation](https://hono.dev/docs/) for instructions on how to integrate it into your runtime (e.g. Deno, AWS Lambda). For example, this is how the app can run on Node.js:
 
 ```ts
+import { serve } from '@hono/node-server';
 import klientoVerifier from '@veraid/kliento-verifier';
-```
 
-Refer to the [Hono documentation](https://hono.dev/docs/) for instructions on how to integrate it into your runtime (e.g. Deno, AWS Lambda).
+serve({ fetch: klientoVerifier.fetch, port: 3000 });
+```
 
 ## Usage
 
