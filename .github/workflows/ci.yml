@@ -7,7 +7,7 @@ jobs:
   ci:
     uses: relaycorp/shared-workflows/.github/workflows/nodejs-lib-ci.yml@main
 
-  release-npm:
+  release:
     needs: ci
     permissions:
       contents: write  # To create a Git tag
