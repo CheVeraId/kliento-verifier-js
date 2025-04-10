@@ -2,11 +2,13 @@
 
 This is a trivial HTTP server that verifies [Kliento](https://veraid.net/kliento/) token bundles.
 
+This app doesn't have any backing services (e.g. DB server).
+
+This app is already packaged as a Docker image in [`CheVeraId/kliento-verifier-docker`](https://github.com/CheVeraId/kliento-verifier-docker).
+
 ## Installation
 
-### NPM package
-
-The app is available as a Hono server in the [NPM package `@veraid/kliento-verifier`](https://www.npmjs.com/package/@veraid/kliento-verifier). The app is the default export of the package.
+The app is available as a Hono server in the [NPM package `@veraid/kliento-verifier`](https://www.npmjs.com/package/@veraid/kliento-verifier), as the default export of the package.
 
 Refer to the [Hono documentation](https://hono.dev/docs/) for instructions on how to integrate it into your runtime (e.g. Deno, AWS Lambda). For example, this is how the app can run on Node.js:
 
@@ -30,7 +32,7 @@ curl \
   "http://localhost:3000/?audience=https%3A%2F%2Fapi.example.com"
 ```
 
-Alternatively, to verify a token bundle in an Authorization request header, you should set the request `Content-Type` to `application/vnd.kliento.auth-header`. For example:
+Alternatively, to verify a token bundle in an `Authorization` request header, you should set the request `Content-Type` to `application/vnd.kliento.auth-header`. For example:
 
 ```bash
 curl \

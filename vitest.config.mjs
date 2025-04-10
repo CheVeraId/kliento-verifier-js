@@ -4,7 +4,7 @@ export default defineConfig({
   test: {
     coverage: {
       enabled: true,
-      exclude: ['src/index.ts', 'src/nodejsServer.ts'],
+      exclude: ['src/index.ts'],
       include: ['src/**/*.ts'],
       thresholds: {
         100: true,
