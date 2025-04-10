@@ -10,7 +10,7 @@
   "type": "module",
   "typings": "build/index.d.ts",
   "main": "build/index.js",
-  "repository": "https://github.com/CheVeraId/kliento-verifier",
+  "repository": "https://github.com/CheVeraId/kliento-verifier-js",
   "license": "MIT",
   "keywords": [
     "VeraId",
