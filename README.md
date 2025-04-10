@@ -19,7 +19,9 @@ serve({ fetch: klientoVerifier.fetch, port: 3000 });
 
 ## Usage
 
-Simply make a `POST /` request to the server with the token bundle in the body and the expected audience in the query string. For example, to verify a token bundle in the file `token-bundle-file` with the audience `https://api.example.com`, you could use `curl` as follows:
+Simply make a `POST /` request to the server with the token bundle in the body and the expected audience in the query string.
+
+For example, to verify a token bundle in the file `token-bundle-file` with the audience `https://api.example.com`, you could use `curl` as follows:
 
 ```bash
 curl \
@@ -36,6 +38,61 @@ curl \
   -H "Content-Type: application/vnd.kliento.auth-header" \
   -d @token-bundle-file \
   "http://localhost:3000/?audience=https%3A%2F%2Fapi.example.com"
+```
+
+## HTTP responses
+
+The endpoint returns the following HTTP responses in JSON format:
+
+### Successful verification (HTTP 200)
+
+```json
+{
+  "status": "valid",
+  "subject": {
+    "organisation": "example.com",
+    "user": "alice"
+  },
+  "claims": {
+    "claim1": "value1"
+  }
+}
+```
+
+Note that `subject.user` will be `undefined` when the token is attributed to the organisation and `claims` may be empty.
+
+### Malformed token bundle (HTTP 200)
+
+```json
+{
+  "error": "Error message",
+  "status": "malformed"
+}
+```
+
+### Invalid token bundle (HTTP 200)
+
+```json
+{
+  "error": "Error message",
+  "status": "invalid"
+}
+```
+
+### Missing audience (HTTP 400)
+
+```json
+{
+  "error": "Audience is missing from the query string"
+}
+```
+
+### Unrecognised request content type (HTTP 415)
+
+```json
+{
+  "error": "Unrecognised content type"
+}
 ```
 
 ## Contributions
