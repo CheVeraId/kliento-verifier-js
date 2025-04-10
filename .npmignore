@@ -1,8 +1,7 @@
 *
 
-!build/lib/**
-build/lib/**/*.spec.js*
-build/lib/lib/testUtils/**
+!build/**
+build/**/*.spec.js*
 
 !LICENSE
 !README.md
