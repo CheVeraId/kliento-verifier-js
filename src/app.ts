@@ -67,7 +67,7 @@ const app = new Hono().post('/', async (context) => {
   return context.json({
     claims: result.claims,
     status: 'valid',
-    subject: result.subject,
+    subject: result.subjectId,
   });
 });
 

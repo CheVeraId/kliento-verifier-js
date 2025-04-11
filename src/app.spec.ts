@@ -13,14 +13,11 @@ const QUERY_STRING = {
 const CLAIMS = {
   foo: 'bar',
 };
-const SUBJECT = {
-  organisation: 'example.com',
-  user: 'alice',
-};
+const SUBJECT = 'alice@example.com';
 
 const TOKEN_BUNDLE_VERIFICATION: TokenBundleVerification = {
   claims: CLAIMS,
-  subject: SUBJECT,
+  subjectId: SUBJECT,
 };
 
 const TOKEN_BUNDLE = Buffer.from('The token bundle');
