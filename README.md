@@ -51,17 +51,14 @@ The endpoint returns the following HTTP responses in JSON format:
 ```json
 {
   "status": "valid",
-  "subject": {
-    "organisation": "example.com",
-    "user": "alice"
-  },
+  "subjectId": "alice@example.com",
   "claims": {
     "claim1": "value1"
   }
 }
 ```
 
-Note that `subject.user` will be `undefined` when the token is attributed to the organisation and `claims` may be empty.
+Note that `claims` may be an empty object.
 
 ### Malformed token bundle (HTTP 200)
 
