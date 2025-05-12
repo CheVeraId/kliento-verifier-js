@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@veraid/kliento": "^1.3.0",
-    "hono": "^4.7.6"
+    "hono": "^4.7.9"
   },
   "devDependencies": {
     "@relaycorp/eslint-config": "^2.0.86",
